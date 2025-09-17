@@ -1,0 +1,146 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: transparent;
+  transition: var(--transition-base);
+  padding: var(--space-lg) 0;
+}
+
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: var(--space-md) 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  transition: var(--transition-base);
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: var(--transition-base);
+}
+
+.navbar-scrolled .brand-logo {
+  filter: brightness(0) invert(0);
+}
+
+/* Menu */
+.navbar-menu {
+  display: flex;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  color: var(--white);
+  position: relative;
+  transition: var(--transition-base);
+}
+
+.navbar-scrolled .nav-link {
+  color: var(--black);
+}
+
+.nav-number {
+  font-size: 0.625rem;
+  font-weight: 500;
+  opacity: 0.5;
+  transition: var(--transition-base);
+}
+
+.nav-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  transition: var(--transition-base);
+}
+
+.nav-link:hover .nav-number,
+.nav-link.active .nav-number {
+  opacity: 1;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--white);
+  transition: var(--transition-base);
+}
+
+.navbar-scrolled .nav-link::after {
+  background-color: var(--black);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu Button */
+.navbar-menu-button {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.menu-line {
+  width: 24px;
+  height: 1px;
+  background-color: var(--white);
+  transition: var(--transition-base);
+}
+
+.navbar-scrolled .menu-line {
+  background-color: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: var(--space-md) 0;
+  }
+  
+  .navbar-scrolled {
+    padding: var(--space-sm) 0;
+  }
+  
+  .navbar-menu {
+    display: none;
+  }
+  
+  .navbar-menu-button {
+    display: flex;
+  }
+  
+  .brand-logo {
+    height: 36px;
+  }
+}
